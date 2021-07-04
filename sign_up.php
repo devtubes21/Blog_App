@@ -14,7 +14,7 @@
         $email = input_varify($_POST['email']);
         $password = input_varify($_POST['password']);
 
-        $query = "INSERT INTO TBL_User(Fname,Lname,email,pwd,Reg_DT) VALUES(
+        $query = "INSERT INTO TBL_User(Fname,Lname,email,pwd,Reg_DT) VALUES( 
             '{$firstname}','{$lastname}','{$email}','{$password}',NOW()
         )";
 
