@@ -9,6 +9,49 @@
     }
 
 ?>
+<?php
+
+    if(isset($_POST['submit'])){
+
+        //Defiene and assign a values for the variable
+        $post_title = input_varify($_POST['title']);
+        $post_body = input_varify($_POST['Post_body']);
+
+        //Build database insert query
+        $query = "INSERT INTO TBL_Post(Post_Title,Post_Body,Create_at)VALUES('{$post_title}','{$post_body}',NOW())";
+
+        $result = mysqli_query($conn, $query);
+
+        if($result){
+            $msg = "
+            
+            <div class='alert alert-primary alert-dismissible fade show' role='alert'>
+            <strong>Post Create Success!</strong> Your Post visibale now.
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+              <span aria-hidden='true'>&times;</span>
+            </button>
+          </div>
+
+            ";
+        }
+        else{
+            echo "Post Not Created " . mysqli_error($conn);
+        }
+
+    }
+
+    function input_varify($data){
+        //Remove empty spece from user input
+        $data = trim($data);
+        //Remove back slash from user input
+        $data  = stripslashes($data);
+        //conver special chars to html entities
+        $data = html_entity_decode($data);
+
+        return $data;
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

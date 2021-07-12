@@ -82,7 +82,7 @@
           </li>
 
           <li class='nav-item'>
-          <a class='nav-link' href='sing_up.php'>Sign Up</a>
+          <a class='nav-link' href='sign_up.php'>Sign Up</a>
           </li>
 
     ";
