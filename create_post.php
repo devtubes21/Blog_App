@@ -16,9 +16,10 @@
         //Defiene and assign a values for the variable
         $post_title = input_varify($_POST['title']);
         $post_body = input_varify($_POST['Post_body']);
+        $Post_srt_nt = input_varify($_POST['Shrt_Nt']);
 
         //Build database insert query
-        $query = "INSERT INTO TBL_Post(Post_Title,Post_Body,Create_at)VALUES('{$post_title}','{$post_body}',NOW())";
+        $query = "INSERT INTO TBL_Post(Post_Title,Post_Srt_Nt,Post_Body,Create_at)VALUES('{$post_title}','{$Post_srt_nt}','{$post_body}',NOW())";
 
         $result = mysqli_query($conn, $query);
 
@@ -87,6 +88,12 @@
                          <input type="text" name="title" id="title" class="form-control" placeholder="" aria-describedby="helpId">
                          <small id="helpId" class="text-muted">Post Title</small>
                        </div>
+
+                       <div class="form-group">
+                           <label for="">Short Note</label>
+                           <textarea class="form-control" name="Shrt_Nt" id="Shrt_Nt" rows="5"></textarea>
+                            <small id="helpId" class="text-muted">Post Content</small>
+                        </div>
 
                        
                          <div class="form-group">

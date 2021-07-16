@@ -16,24 +16,27 @@
 
             while($post = mysqli_fetch_assoc($ShowPost)){
 
+                $postbody .= "<a id='Post_link' href='ShowPost.php?Post_Id={$post['Id']}'>";
 
-                $postbody .= "<div id='main_div'>";
+                    $postbody .= "<div id='main_div'>";
 
-                    $postbody .= "<h1 id='title'>";
-                        $postbody .= "{$post['Post_Title']}";
-                    $postbody .= "</h1>";
+                        $postbody .= "<h1 id='title'>";
+                            $postbody .= "{$post['Post_Title']}";
+                        $postbody .= "</h1>";
 
-                    $postbody .= "<div id='body'>";
-                        $postbody .= "{$post['Post_Body']}";
+                        $postbody .= "<div id='body'>";
+                            $postbody .= "{$post['Post_Srt_Nt']}";
+                        $postbody .= "</div>";
+
+                        $postbody .= "<div id='body'>";
+                            $postbody .= "<small>";
+                                $postbody .= "Created at {$post['Create_at']}";
+                            $postbody .= "</small>";
+                        $postbody .= "</div>";
+
                     $postbody .= "</div>";
 
-                    $postbody .= "<div id='body'>";
-                        $postbody .= "<small>";
-                            $postbody .= "Created at {$post['Create_at']}";
-                        $postbody .= "</small>";
-                    $postbody .= "</div>";
-
-                $postbody .= "</div>";
+                $postbody .= "</a>";
                 
 
             }
@@ -58,6 +61,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <title>Blog App</title>
     <style>
+
+        #Post_link{
+            text-decoration: none;
+        }
 
         #main_div{
 
